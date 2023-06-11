@@ -4,18 +4,20 @@ In this document, we keep track of both a work breakdown structure and a network
 
 ## Work breakdown structure
 
-| Task ID | Name                                                         | Priority | Depends upon |
-| ------- | ------------------------------------------------------------ | -------- | ------------ |
-| 1       | Configuration file with defaults and instructions.           | 1        |              |
-| 2       | Read configuration file to JS.                               | 1        | 1            |
-| 3       | Move bookmarks to folders based on the configuration file. Do that with a push of a button. | 1        | 2            |
-| 4       | Add triggers that move new bookmarks automatically when they're added. | 2        | 3            |
+| ID   | Name                                                         | Priority | Depends upon |
+| ---- | ------------------------------------------------------------ | -------- | ------------ |
+| 1    | Write new repo docs                                          | 1        |              |
+| 2    | Read a JSON file containing Firefox bookmarks into memory    | 1        |              |
+| 3    | For each bookmark folder, create a new folder on the file system | 1        | 2            |
+| 4    | For each bookmark, create a new desktop file with a URL      | 1        | 3            |
+| 5    | Remove any bookmarks that have been successfully saved to a desktop file | 2        | 4            |
 
 ## Network diagram
 
-| Task ID | Name                                                         | Priority | Depends upon |
-| ------- | ------------------------------------------------------------ | -------- | ------------ |
-| 1       | Configuration file with defaults and instructions.           | 1        |              |
-| 2       | Read configuration file to JS.                               | 1        | 1            |
-| 3       | Move bookmarks to folders based on the configuration file. Do that with a push of a button. | 1        | 2            |
-| 4       | Add triggers that move new bookmarks automatically when they're added. | 2        | 3            |
+| ID   | Name | Priority | Depends upon |
+| ---- | ---- | -------- | ------------ |
+| 1    | Write new repo docs                                          | 1        |              |
+| 2    | Read a JSON file containing Firefox bookmarks into memory    | 1        |              |
+| 3    | For each bookmark folder, create a new folder on the file system | 1        | 2            |
+| 4    | For each bookmark, create a new desktop file with a URL      | 1        | 3            |
+| 5    | Remove any bookmarks that have been successfully saved to a desktop file | 2        | 4            |
