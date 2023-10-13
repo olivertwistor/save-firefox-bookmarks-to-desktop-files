@@ -12,4 +12,4 @@ More info on this will come with the next release.
 
 ## Licenses
 
-Save Firefox Bookmarks To Desktop Files is distributed under an MIT License. Read the full terms in the file [LICENSE](LICENSE).
+Save Firefox Bookmarks To Desktop Files is distributed under an Apache License version 2.0. Read the full terms in the file [LICENSE](LICENSE).
