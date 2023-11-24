@@ -1,0 +1,25 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "3b13e948059d42076980ecb0a89e2d8426709fd3c1d2b76d6d73d96471b6c0a5"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.11"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "olivertwistor.bookmarks2desktop": {
+            "editable": true,
+            "file": "."
+        }
+    },
+    "develop": {}
+}
