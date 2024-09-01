@@ -1,21 +1,52 @@
 """
 This is the main script of this app. It contains the main program flow.
 """
-from bookmarks2desktop import parser
+import argparse
+import datetime
+import logging
+import os
+
+from bookmarks2desktop.io.reader import Reader
+from bookmarks2desktop.tree.node import Node
 
 
-def main() -> None:
+def setup_logging() -> None:
     """
-    Reads a JSON formatted Firefox bookmarks file into a dict. For each
-    bookmark folder found, this app creates a directory on the file system.
-    For each bookmark link, this app creates a .desktop file on the file
-    system, in the respective directory. In essence, it recreates the entire
-    bookmark file on the file system with the same hierarchy. After each
-    successful write operation to the file system, the bookmark is deleted from
-    the bookmark file.
+    Setups logging with the correct format and redirects the output to stderr.
     """
-    json = parser.parse_json("tests/bookmarks.json")
+    timestamp = datetime.datetime.now()
+    today = timestamp.strftime("%Y-%m-%d")
+
+    logging.basicConfig(format="%(asctime)s %(levelname)s %(message)s",
+                        datefmt="%Y-%m-%d %H:%M:%S",
+                        level=logging.DEBUG)
+
+
+def read_console_parameters() -> tuple:
+    """
+    Reads the console parameters passed to this app.
+
+    :return: A tuple containing the source file and a flag for whether to
+    overwrite any files
+    """
+    parser = argparse.ArgumentParser(prog="bookmarks2desktop",
+                                     description="Extracts Firefox bookmarks "
+                                                 "to .desktop files.")
+    parser.add_argument("source_file",
+                        help="path to an exported Firefox bookmarks file "
+                             "(JSON-formatted)")
+    parser.add_argument("-o",
+                        "--overwrite",
+                        action="store_true",
+                        default=False,
+                        help="overwrite files if the target path for a "
+                             "bookmark file already exists on the filesystem")
+
+    args = parser.parse_args()
+
+    return args.source_file, args.overwrite
 
 
 if __name__ == "__main__":
-    main()
+    setup_logging()
+    source_file, overwrite_files = read_console_parameters()
