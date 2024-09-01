@@ -3,12 +3,11 @@ Setup for the Save Firefox Bookmarks To Desktop Files app.
 """
 from setuptools import setup, find_packages
 
-
 # Read README.md as the long description.
 with open("README.md") as fp:
     readme = fp.read()
 
-# READ LICENSE as the license.
+# Read LICENSE as the license.
 with open("LICENSE") as fp:
     license_file = fp.read()
 
